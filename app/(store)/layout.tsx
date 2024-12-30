@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
+import { SanityLive } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +20,9 @@ export default function RootLayout({
         <body>
           <main>
             <Header />
-            {children}
+            <div className="px-32 py-12">{children}</div>
           </main>
+          <SanityLive />
         </body>
       </html>
     </ClerkProvider>
