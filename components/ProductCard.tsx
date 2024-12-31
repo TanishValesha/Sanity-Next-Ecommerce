@@ -5,16 +5,18 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ListCollapse, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { imageURL } from "@/lib/imageURL";
 import { getCategory } from "@/sanity/lib/products/getCategory";
+import Link from "next/link";
 
 interface ProductCardProps {
   title: string;
   price: number;
   image: string;
   category: string;
+  slug: string;
 }
 
 export async function ProductCard({
@@ -22,9 +24,9 @@ export async function ProductCard({
   price,
   image,
   category,
+  slug,
 }: ProductCardProps) {
   const categoryName = await getCategory(category);
-
   return (
     <Card className="overflow-hidden transition-all hover:shadow-lg">
       <CardHeader className="p-0">
@@ -42,11 +44,17 @@ export async function ProductCard({
         <h3 className="font-semibold text-lg mt-1 leading-tight">{title}</h3>
         <p className="text-xl font-bold mt-2">₹{price.toFixed(2)}</p>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="p-4 pt-0 flex gap-2">
         <Button className="w-full gap-2 bg-blue-500 hover:bg-blue-600">
           <ShoppingCart size={16} />
           Add to Cart
         </Button>
+        <Link href={`/product/${slug}`}>
+          <Button className="w-full gap-2 bg-blue-500 hover:bg-blue-600">
+            <ListCollapse size={16} />
+            View Details
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

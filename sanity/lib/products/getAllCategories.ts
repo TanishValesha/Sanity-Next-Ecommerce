@@ -1,18 +1,18 @@
-// import { defineQuery } from "next-sanity";
-// import { sanityFetch } from "../live";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "../live";
 
-// export const getAllCategories = async () => {
-//   const ALL_CATEGORY_QUERY = defineQuery(`
-//     *[_type == "category"] | order(name asc) `);
+export const getAllCategories = async () => {
+  const ALL_CATEGORY_QUERY = defineQuery(`
+    *[_type == "category"] | order(title asc) `);
 
-//   try {
-//     const categories = await sanityFetch({
-//       query: ALL_CATEGORY_QUERY,
-//     });
+  try {
+    const categories = await sanityFetch({
+      query: ALL_CATEGORY_QUERY,
+    });
 
-//     return categories.data || [];
-//   } catch (error) {
-//     console.error(error);
-//     return [];
-//   }
-// };
+    return categories.data || [];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};

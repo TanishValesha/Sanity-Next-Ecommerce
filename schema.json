@@ -988,6 +988,20 @@
         },
         "optional": true
       },
+      "rating": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "reviews": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
       "category": {
         "type": "objectAttribute",
         "value": {

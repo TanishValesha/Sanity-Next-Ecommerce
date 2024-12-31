@@ -51,6 +51,18 @@ export const productType = defineType({
       validation: (Rule) => Rule.required().min(0),
     }),
     defineField({
+      name: "rating",
+      title: "Rating",
+      type: "number",
+      validation: (Rule) => Rule.required().min(0).max(5),
+    }),
+    defineField({
+      name: "reviews",
+      title: "Reviews",
+      type: "number",
+      validation: (Rule) => Rule.required().min(0),
+    }),
+    defineField({
       name: "category",
       title: "Category",
       type: "array",

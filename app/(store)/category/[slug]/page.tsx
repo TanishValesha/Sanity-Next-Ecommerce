@@ -1,13 +1,19 @@
 import { CategorySelector } from "@/components/CategorySelector";
 import { ProductCard } from "@/components/ProductCard";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
-import { getAllProducts } from "@/sanity/lib/products/getAllProducts";
+import { getProductsByCategory } from "@/sanity/lib/products/getProductsByCategory";
 import React from "react";
 
-const Home = async () => {
-  const products = await getAllProducts();
+const CategoryPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
+  const products = await getProductsByCategory(slug);
   const categories = await getAllCategories();
 
+  console.log(products);
   return (
     <div className="flex flex-col gap-6">
       <CategorySelector categories={categories} />
@@ -31,4 +37,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default CategoryPage;
