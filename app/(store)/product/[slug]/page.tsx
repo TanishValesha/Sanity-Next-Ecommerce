@@ -25,7 +25,7 @@ export default async function ProductPage({
   );
 
   return (
-    <div className="min-h-screen bg-background px-32 py-10">
+    <div className="min-h-screen bg-background px-0 py-0 lg:px-32 lg:py-12">
       <div className="">
         <Link
           href="/"

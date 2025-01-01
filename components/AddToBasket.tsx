@@ -2,7 +2,6 @@
 
 import useBasketStore from "@/app/store";
 import React, { useEffect } from "react";
-import { Button } from "./ui/button";
 import { Minus, Plus } from "lucide-react";
 import { Product } from "@/sanity.types";
 
@@ -34,9 +33,6 @@ const AddToBasket = ({ product }: AddToBasketProps) => {
       <button className="rounded-full p-1 bg-blue-500">
         <Plus className="text-white w-4 h-4" onClick={() => addItem(product)} />
       </button>
-      <Button size="lg" className="w-full bg-blue-500 hover:bg-blue-600">
-        Add to Cart
-      </Button>
     </div>
   );
 };

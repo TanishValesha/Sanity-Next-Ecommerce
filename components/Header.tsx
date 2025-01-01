@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 justify-between items-center px-4 py-2 sm:space-x-4">
-      <div className="flex items-center space-x-4 w-[40%]">
+      <div className="flex items-center justify-between space-x-4 lg:w-[40%]">
         <Link href={"/"} className="font-bold text-xl text-blue-500">
           Shop
         </Link>
@@ -23,14 +23,14 @@ const Header = () => {
             name="query"
             placeholder="Search for Products"
             className="bg-gray-100 text-gray-800
-px-4 py-2
-rounded
-focus:outline-none
-focus:ring-2
-focus:ring-blue-500
-focus:ring-opacity-56
-border
-w-full text-center"
+                          px-4 py-2
+                          rounded
+                          focus:outline-none
+                          focus:ring-2
+                          focus:ring-blue-500
+                          focus:ring-opacity-56
+                          border
+                          sm:w-full w-64 text-center"
           />
         </Form>
       </div>
