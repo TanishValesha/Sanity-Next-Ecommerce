@@ -1,19 +1,22 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Star, Truck } from "lucide-react";
+import { PortableTextBlock } from "next-sanity";
+import MyComponent from "./MyComponent";
+import AddToBasket from "./AddToBasket";
+import { Product } from "@/sanity.types";
 
 interface ProductCardProps {
+  product: Product;
   title: string;
   price: number;
-  description: string;
+  description: PortableTextBlock[];
   rating: number;
   reviews: number;
   category: string;
 }
 
 export function ProductInfo({
+  product,
   title,
   price,
   description,
@@ -73,7 +76,7 @@ export function ProductInfo({
 
       <div className="space-y-4">
         <h3 className="font-semibold">Description</h3>
-        <p className="text-muted-foreground">{description}</p>
+        <MyComponent content={description} />
       </div>
 
       {/* {product.features && (
@@ -91,9 +94,7 @@ export function ProductInfo({
       )} */}
 
       <div className="space-y-4 pt-4">
-        <Button size="lg" className="w-full bg-blue-500 hover:bg-blue-600">
-          Add to Cart
-        </Button>
+        <AddToBasket product={product} />
 
         <div className="grid grid-cols-2 gap-4">
           <div className="flex items-center space-x-2">

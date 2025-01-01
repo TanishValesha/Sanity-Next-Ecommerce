@@ -5,6 +5,7 @@ import { ProductImage } from "@/components/ProductImage";
 import { ProductInfo } from "@/components/ProductInfo";
 import { getProduct } from "@/sanity/lib/products/getProduct";
 import { getCategory } from "@/sanity/lib/products/getCategory";
+import { PortableTextBlock } from "next-sanity";
 
 export default async function ProductPage({
   params,
@@ -40,21 +41,14 @@ export default async function ProductPage({
             name={product.name || "No Name"}
           />
           <ProductInfo
+            product={product}
             key={product._id}
             title={product.name || "No Title"}
             price={product.price || 0}
             rating={product.rating || 0}
             reviews={product.reviews || 0}
             category={categoryName}
-            description={
-              product.description
-                ?.map((block) =>
-                  block._type === "block"
-                    ? block.children?.map((child) => child.text).join("")
-                    : ""
-                )
-                .join("") || "No Description"
-            }
+            description={(product.description as PortableTextBlock[]) || []}
           />
         </div>
       </div>

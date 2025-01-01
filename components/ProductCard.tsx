@@ -5,7 +5,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ListCollapse, ShoppingCart } from "lucide-react";
+import { ListCollapse } from "lucide-react";
 import Image from "next/image";
 import { imageURL } from "@/lib/imageURL";
 import { getCategory } from "@/sanity/lib/products/getCategory";
@@ -45,11 +45,7 @@ export async function ProductCard({
         <p className="text-xl font-bold mt-2">₹{price.toFixed(2)}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0 flex gap-2">
-        <Button className="w-full gap-2 bg-blue-500 hover:bg-blue-600">
-          <ShoppingCart size={16} />
-          Add to Cart
-        </Button>
-        <Link href={`/product/${slug}`}>
+        <Link href={`/product/${slug}`} className="w-full">
           <Button className="w-full gap-2 bg-blue-500 hover:bg-blue-600">
             <ListCollapse size={16} />
             View Details
